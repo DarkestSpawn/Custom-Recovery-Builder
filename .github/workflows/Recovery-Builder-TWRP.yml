@@ -6,7 +6,7 @@ on:
       MANIFEST_BRANCH:
         description: 'TWRP Minimal-Manifest Branch'
         required: true
-        default: ''
+        default: 'twrp-14'
         type: choice
         options:
         - twrp-12.1
@@ -136,12 +136,12 @@ jobs:
         fi
       continue-on-error: true
       
-    - name: Install Python 2
+    - name: Install Python 3
       if: github.event.inputs.MANIFEST_BRANCH != 'twrp-11' && github.event.inputs.MANIFEST_BRANCH != 'twrp-12.1' && github.event.inputs.MANIFEST_BRANCH != 'twrp-14'
       run: |
-        sudo apt -y install python2
+        sudo apt -y install python3
         cd /usr/bin
-        sudo ln -sf python2 python
+        sudo ln -sf python3 python
 
     - name: Building Image 
       run: |
@@ -164,7 +164,7 @@ jobs:
         name: Unofficial TWRP for ${{ github.event.inputs.DEVICE_NAME }} // ${{ env.BUILD_DATE }}
         tag_name: ${{ github.run_id }}
         body: |
-          Build: TWRP-3.7.1
+          Build: Unoffical-TWRP
           Device: NX769J
 
     - name: Run LDCheck
