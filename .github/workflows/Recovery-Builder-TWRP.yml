@@ -147,6 +147,8 @@ jobs:
         cd android-recovery
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
+        sudo apt-get install -y libgflags-dev libgtest-dev libc++-dev clang
+        git clone https://android.googlesource.com/platform/external/gflags/ external/gflags
         lunch ${{ env.DEVICE_MAKEFILE }} && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
         echo "Done building your ${{ github.event.inputs.BUILD_TARGET }}.img"
       
