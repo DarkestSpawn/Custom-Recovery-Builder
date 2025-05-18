@@ -155,7 +155,7 @@ jobs:
       
     - name: Upload to Release (Recovery)
       if: github.event.inputs.BUILD_TARGET == 'boot' || github.event.inputs.BUILD_TARGET == 'recovery'
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: |
           android-recovery/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/${{ github.event.inputs.BUILD_TARGET }}.img
