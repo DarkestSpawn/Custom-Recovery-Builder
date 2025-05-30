@@ -162,7 +162,7 @@ jobs:
         name: Unofficial TWRP for ${{ github.event.inputs.DEVICE_NAME }} // ${{ env.BUILD_DATE }}
         tag_name: ${{ github.run_id }}
         body: |
-          Build: Unoffical-TWRP
+          Build: Unofficial-TWRP
           Device: NX769J
 
     - name: Run LDCheck
